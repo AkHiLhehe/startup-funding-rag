@@ -201,26 +201,8 @@ Navigate to the Analytics page to see:
 
 ### System Components
 
-```
-┌─────────────┐
-│   Frontend  │ (React + Tailwind)
-│  (Port 3000)│
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  Backend    │ (FastAPI)
-│  (Port 8000)│
-└──────┬──────┘
-       │
-       ├──────────────┬─────────────┐
-       ▼              ▼             ▼
-┌───────────┐  ┌──────────┐  ┌──────────┐
-│ Weaviate  │  │ MongoDB  │  │  Gemini  │
-│Vector DB  │  │Document  │  │   LLM    │
-│(Port 8080)│  │   Store  │  │   API    │
-└───────────┘  └──────────┘  └──────────┘
-```
+<img width="632" height="1032" alt="_- visual selection (2)" src="https://github.com/user-attachments/assets/1d3f5b77-b6cd-4a72-a231-8e93fc4527d2" />
+
 
 ### RAG Pipeline Flow
 
