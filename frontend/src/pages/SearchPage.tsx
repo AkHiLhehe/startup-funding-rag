@@ -160,13 +160,7 @@ const SearchPage: React.FC = () => {
         <div className="space-y-6">
           {/* Metadata */}
           <div className="card">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-              <div>
-                <div className="text-gray-500">Confidence</div>
-                <div className="font-semibold text-lg">
-                  {(result.confidence_score * 100).toFixed(0)}%
-                </div>
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
               <div>
                 <div className="text-gray-500">Processing Time</div>
                 <div className="font-semibold text-lg">
@@ -215,9 +209,6 @@ const SearchPage: React.FC = () => {
                           {citation.source_title}
                         </span>
                       </div>
-                      <span className="text-sm text-gray-500">
-                        {(citation.confidence_score * 100).toFixed(0)}% confidence
-                      </span>
                     </div>
                     <p className="text-sm text-gray-700 mb-2">
                       {citation.excerpt}
