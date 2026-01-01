@@ -1,4 +1,5 @@
 # Startup Investment Intelligence Platform
+This project is built for the Anokha Generative AI track challenge.
 
 ## 🚀 Production-Grade RAG System for Startup & Investor Intelligence
 
@@ -33,13 +34,6 @@ The startup ecosystem generates millions of data points daily—funding announce
 - Response relevance scoring
 - Performance monitoring
 - Query analytics
-
-### 🎨 Modern UI
-- React + TypeScript frontend
-- Tailwind CSS for beautiful, responsive design
-- Real-time search interface
-- Interactive analytics dashboard
-- Document ingestion portal
 
 ## 🛠️ Tech Stack
 
@@ -118,24 +112,20 @@ This will start:
 
 ```bash
 cd backend
-
-# Create virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
 pip install -r requirements.txt
 
-# Configure environment
+
 cp .env.example .env
 # Edit .env with your settings
 
-# Start services (Weaviate & MongoDB)
-# Using Docker:
+
+#Use Docker:
 docker run -d -p 8080:8080 semitechnologies/weaviate:latest
 docker run -d -p 27017:27017 mongo:7.0
 
-# Run the backend
 python main.py
 ```
 
@@ -144,13 +134,10 @@ python main.py
 ```bash
 cd frontend
 
-# Install dependencies
 npm install
 
-# Configure environment
 cp .env.example .env
 
-# Start development server
 npm run dev
 ```
 
@@ -182,7 +169,7 @@ response = requests.post(
 )
 ```
 
-### 2. Search Intelligence
+### 2. Search
 
 **Via UI:**
 - Navigate to "Search" page
@@ -256,130 +243,9 @@ Navigate to the Analytics page to see:
    - Extract and validate citations
    - Return with confidence scores
 
-## 📁 Project Structure
 
-```
-Anokha4/
-├── backend/
-│   ├── main.py                 # FastAPI application entry
-│   ├── core/
-│   │   └── config.py          # Configuration management
-│   ├── models/
-│   │   └── schemas.py         # Pydantic models
-│   ├── services/
-│   │   ├── weaviate_service.py    # Vector DB operations
-│   │   ├── mongodb_service.py     # Document storage
-│   │   ├── embedding_service.py   # DeepSeek embeddings
-│   │   ├── llm_service.py         # Gemini LLM
-│   │   ├── rag_pipeline.py        # RAG orchestration
-│   │   └── evaluation_service.py  # Metrics tracking
-│   ├── api/
-│   │   └── routes/
-│   │       ├── search.py          # Search endpoints
-│   │       ├── ingest.py          # Ingestion endpoints
-│   │       ├── analytics.py       # Analytics endpoints
-│   │       └── health.py          # Health checks
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── .env.example
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   └── Navbar.tsx
-│   │   ├── pages/
-│   │   │   ├── HomePage.tsx
-│   │   │   ├── SearchPage.tsx
-│   │   │   ├── IngestPage.tsx
-│   │   │   └── AnalyticsPage.tsx
-│   │   ├── services/
-│   │   │   └── api.ts             # API client
-│   │   ├── App.tsx
-│   │   ├── main.tsx
-│   │   └── index.css
-│   ├── package.json
-│   ├── vite.config.ts
-│   ├── tailwind.config.js
-│   ├── Dockerfile
-│   └── .env.example
-├── docker-compose.yml
-└── README.md
-```
-
-## 🔧 Configuration
-
-### Backend Environment Variables
-
-```env
-# Application
-DEBUG=True
-HOST=0.0.0.0
-PORT=8000
-
-# Gemini API
-GEMINI_API_KEY=your_key_here
-GEMINI_MODEL=gemini-1.5-pro
-GEMINI_TEMPERATURE=0.2
-
-# DeepSeek
-DEEPSEEK_API_KEY=your_key_here
-EMBEDDING_DIMENSION=1536
-
-# Weaviate
-WEAVIATE_URL=http://localhost:8080
-
-# MongoDB
-MONGODB_URL=mongodb://localhost:27017
-MONGODB_DB_NAME=startup_intelligence
-
-# RAG Settings
-CHUNK_SIZE=1000
-CHUNK_OVERLAP=200
-TOP_K_RESULTS=10
-SIMILARITY_THRESHOLD=0.7
-```
 
 ## 📊 API Documentation
-
-### Search Endpoint
-
-**POST** `/api/v1/search/`
-
-Request:
-```json
-{
-  "query": "Which VCs focus on Series A fintech?",
-  "query_type": "investor_search",
-  "top_k": 10,
-  "include_citations": true
-}
-```
-
-Response:
-```json
-{
-  "query": "Which VCs focus on Series A fintech?",
-  "answer": "Based on the available data, several VCs focus on Series A fintech...[1][2]",
-  "citations": [
-    {
-      "source_id": "doc_123",
-      "source_title": "Sequoia's Fintech Thesis",
-      "excerpt": "We invest in Series A fintech...",
-      "confidence_score": 0.92
-    }
-  ],
-  "retrieved_chunks": 8,
-  "processing_time": 2.34,
-  "confidence_score": 0.87
-}
-```
-
-### Ingest Document
-
-**POST** `/api/v1/ingest/document`
-
-### Get Analytics
-
-**GET** `/api/v1/analytics/metrics`
 
 Full API documentation available at: `http://localhost:8000/docs`
 
@@ -394,29 +260,8 @@ The system tracks:
 - **Latency**: Query processing time
 - **Query Distribution**: Query type analytics
 
-## 🔐 Security Considerations
-
-- API keys stored in environment variables
-- No hardcoded credentials
-- CORS configured for frontend
-- Input validation on all endpoints
-- MongoDB connection secured
-- Rate limiting recommended for production
-
 ## 🚀 Deployment
 
-### Production Deployment Checklist
-
-- [ ] Configure production API keys
-- [ ] Set `DEBUG=False`
-- [ ] Configure proper CORS origins
-- [ ] Set up persistent volumes for databases
-- [ ] Configure backup strategy
-- [ ] Set up monitoring (Prometheus/Grafana)
-- [ ] Configure reverse proxy (nginx)
-- [ ] Enable HTTPS
-- [ ] Set up logging aggregation
-- [ ] Configure autoscaling
 
 ### Docker Production Build
 
@@ -452,33 +297,20 @@ npm test
 - Query result caching
 - Lazy loading in frontend
 
-## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## 📝 License
 
 This project is built for the Anokha Generative AI track challenge.
 
-## 🙋 Support
+##  Support
 
 For issues, questions, or contributions, please open an issue in the repository.
 
-## 🎉 Acknowledgments
+##  Acknowledgments
 
 - **Gemini** for powerful LLM capabilities
-- **DeepSeek** for embedding generation
+- **Voyage AI** for embedding generation
 - **Weaviate** for vector search
 - **MongoDB** for data persistence
 - **FastAPI** for the backend framework
 - **React** for the frontend
 
----
-
-**Built with ❤️ for the Anokha Generative AI Track**
-
-Transform fragmented data into actionable intelligence. 🚀
