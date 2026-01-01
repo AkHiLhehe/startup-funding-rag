@@ -15,9 +15,10 @@ The startup ecosystem generates millions of data points daily—funding announce
 
 ### 🎯 Advanced RAG Pipeline
 - **Gemini LLM** for reasoning and multilingual generation
-- **DeepSeek Embeddings** for dense vector representations
+- **Voyage AI Embeddings** for dense vector representations
 - **Weaviate Vector DB** for semantic search
-- **MongoDB** for structured data storage
+- **MongoDB** for data storage
+- **Tavily** for real time search
 - Hybrid search combining vector and keyword matching
 
 ### 📚 Strict Citation & Provenance
