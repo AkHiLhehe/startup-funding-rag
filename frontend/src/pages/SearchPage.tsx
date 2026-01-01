@@ -55,45 +55,45 @@ const SearchPage: React.FC = () => {
 
       {/* Search Form */}
       <form onSubmit={handleSearch} className="card mb-8">
-        <div className=\"grid grid-cols-1 md:grid-cols-2 gap-4 mb-4\">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
-            <label className=\"block text-sm font-medium text-gray-700 mb-2\">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Query Type
             </label>
             <select
               value={queryType}
               onChange={(e) => setQueryType(e.target.value as any)}
-              className=\"input-field\"
+              className="input-field"
             >
-              <option value=\"general\">General</option>
-              <option value=\"investor_search\">Investor Search</option>
-              <option value=\"startup_search\">Startup Search</option>
-              <option value=\"funding_analysis\">Funding Analysis</option>
-              <option value=\"market_intelligence\">Market Intelligence</option>
+              <option value="general">General</option>
+              <option value="investor_search">Investor Search</option>
+              <option value="startup_search">Startup Search</option>
+              <option value="funding_analysis">Funding Analysis</option>
+              <option value="market_intelligence">Market Intelligence</option>
             </select>
           </div>
 
           <div>
-            <label className=\"block text-sm font-medium text-gray-700 mb-2\">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Response Language 🌍
             </label>
             <select
               value={responseLanguage}
               onChange={(e) => setResponseLanguage(e.target.value)}
-              className=\"input-field\"
+              className="input-field"
             >
-              <option value=\"auto\">Auto-detect</option>
-              <option value=\"en\">English</option>
-              <option value=\"hi\">हिंदी (Hindi)</option>
-              <option value=\"ta\">தமிழ் (Tamil)</option>
-              <option value=\"te\">తెలుగు (Telugu)</option>
-              <option value=\"bn\">বাংলা (Bengali)</option>
-              <option value=\"mr\">मराठी (Marathi)</option>
-              <option value=\"gu\">ગુજરાતી (Gujarati)</option>
-              <option value=\"kn\">ಕನ್ನಡ (Kannada)</option>
-              <option value=\"ml\">മലയാളം (Malayalam)</option>
-              <option value=\"pa\">ਪੰਜਾਬੀ (Punjabi)</option>
-              <option value=\"ur\">اردو (Urdu)</option>
+              <option value="auto">Auto-detect</option>
+              <option value="en">English</option>
+              <option value="hi">हिंदी (Hindi)</option>
+              <option value="ta">தமிழ் (Tamil)</option>
+              <option value="te">తెలుగు (Telugu)</option>
+              <option value="bn">বাংলা (Bengali)</option>
+              <option value="mr">मराठी (Marathi)</option>
+              <option value="gu">ગુજરાતી (Gujarati)</option>
+              <option value="kn">ಕನ್ನಡ (Kannada)</option>
+              <option value="ml">മലയാളം (Malayalam)</option>
+              <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+              <option value="ur">اردو (Urdu)</option>
             </select>
           </div>
         </div>

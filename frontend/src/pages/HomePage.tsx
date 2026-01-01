@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
           <h3 className="text-xl font-semibold mb-2">RAG-Powered Search</h3>
           <p className="text-gray-600">
             Advanced retrieval-augmented generation using Gemini LLM and 
-            DeepSeek embeddings for accurate, context-aware responses.
+            Voyage AI embeddings for accurate, context-aware responses.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ const HomePage: React.FC = () => {
             <div className="text-sm text-gray-600">LLM</div>
           </div>
           <div>
-            <div className="text-lg font-semibold text-gray-900">DeepSeek</div>
+            <div className="text-lg font-semibold text-gray-900">Voyage AI</div>
             <div className="text-sm text-gray-600">Embeddings</div>
           </div>
           <div>
@@ -117,6 +117,10 @@ const HomePage: React.FC = () => {
           <div>
             <div className="text-lg font-semibold text-gray-900">MongoDB</div>
             <div className="text-sm text-gray-600">Database</div>
+          </div>
+          <div>
+            <div className="text-lg font-semibold text-gray-900">Tavily</div>
+            <div className="text-sm text-gray-600">Web Search</div>
           </div>
         </div>
       </div>
