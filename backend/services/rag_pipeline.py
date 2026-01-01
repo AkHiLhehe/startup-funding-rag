@@ -221,13 +221,36 @@ class RAGPipeline:
                 )
             except Exception as e:
                 print(f"⚠️  LLM generation failed: {e}")
-                # Fallback: return retrieved chunks as answer
+                
+                # Detect language if not specified for fallback
+                if not response_language:
+                    response_language = self.llm_service._detect_language(query)
+                
+                # Fallback: return retrieved chunks as answer with language-specific message
                 chunks_text = "\n\n".join([
                     f"[{i+1}] {chunk['properties'].get('source_title', 'Unknown')}: {chunk['properties'].get('content', '')[:200]}..."
                     for i, chunk in enumerate(filtered_results[:5])
                 ])
+                
+                # Language-specific fallback messages
+                fallback_messages = {
+                    "hi": "प्राप्त दस्तावेज़ों के आधार पर:",
+                    "ta": "மீட்டெடுக்கப்பட்ட ஆவணங்களின் அடிப்படையில்:",
+                    "te": "తిరిగి పొందిన పత్రాల ఆధారంగా:",
+                    "bn": "পুনরুদ্ধার করা নথির উপর ভিত্তি করে:",
+                    "mr": "पुनर्प्राप्त केलेल्या कागदपत्रांवर आधारित:",
+                    "gu": "પુનઃપ્રાપ્ત દસ્તાવેજોના આધારે:",
+                    "kn": "ಮರುಪಡೆದ ದಾಖಲೆಗಳ ಆಧಾರದ ಮೇಲೆ:",
+                    "ml": "വീണ്ടെടുത്ത രേഖകളുടെ അടിസ്ഥാനത്തിൽ:",
+                    "pa": "ਮੁੜ ਪ੍ਰਾਪਤ ਕੀਤੇ ਦਸਤਾਵੇਜ਼ਾਂ ਦੇ ਆਧਾਰ 'ਤੇ:",
+                    "ur": "بازیافت شدہ دستاویزات کی بنیاد پر:",
+                    "en": "Based on the retrieved documents:"
+                }
+                
+                intro_message = fallback_messages.get(response_language, fallback_messages["en"])
+                
                 generation_result = {
-                    "answer": f"Based on the retrieved documents:\n\n{chunks_text}",
+                    "answer": f"{intro_message}\n\n{chunks_text}",
                     "citations": [
                         {
                             "source_id": chunk['properties'].get('source_id', 'unknown'),
