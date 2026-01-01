@@ -43,7 +43,8 @@ async def search(request: Request, search_request: SearchRequest):
             top_k=search_request.top_k or 10,
             filters=search_request.filters,
             use_web_search=search_request.use_web_search if hasattr(search_request, 'use_web_search') else True,
-            web_search_only=search_request.web_search_only if hasattr(search_request, 'web_search_only') else False
+            web_search_only=search_request.web_search_only if hasattr(search_request, 'web_search_only') else False,
+            response_language=search_request.response_language if hasattr(search_request, 'response_language') else None
         )
         
         # Evaluate and log metrics

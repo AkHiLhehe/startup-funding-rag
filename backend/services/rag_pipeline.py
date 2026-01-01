@@ -117,7 +117,8 @@ class RAGPipeline:
         top_k: int = 10,
         filters: Optional[Dict[str, Any]] = None,
         use_web_search: bool = True,  # New parameter for real-time search
-        web_search_only: bool = False  # New parameter to use ONLY web search
+        web_search_only: bool = False,  # New parameter to use ONLY web search
+        response_language: Optional[str] = None  # Language for response
     ) -> Dict[str, Any]:
         """
         RAG: Retrieve relevant chunks and generate response
@@ -215,7 +216,8 @@ class RAGPipeline:
                 generation_result = await self.llm_service.generate_with_citations(
                     query=query,
                     retrieved_chunks=filtered_results,
-                    query_type=query_type
+                    query_type=query_type,
+                    response_language=response_language
                 )
             except Exception as e:
                 print(f"⚠️  LLM generation failed: {e}")

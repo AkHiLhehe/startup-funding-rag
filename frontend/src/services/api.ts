@@ -14,6 +14,7 @@ export interface SearchRequest {
   query_type?: 'investor_search' | 'startup_search' | 'funding_analysis' | 'market_intelligence' | 'general';
   top_k?: number;
   include_citations?: boolean;
+  response_language?: string;
 }
 
 export interface Citation {

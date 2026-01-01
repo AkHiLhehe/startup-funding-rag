@@ -23,6 +23,7 @@ class SearchRequest(BaseModel):
     include_citations: bool = Field(default=True, description="Include citations in response")
     use_web_search: bool = Field(default=True, description="Enable real-time web search via Tavily")
     web_search_only: bool = Field(default=False, description="Use only web search (skip local DB)")
+    response_language: Optional[str] = Field(default=None, description="Response language code (auto-detect if None). Supported: en, hi, ta, te, bn, mr, gu, kn, ml, pa, ur")
 
 
 class Citation(BaseModel):

@@ -62,10 +62,12 @@ class GeminiService:
         self,
         query: str,
         retrieved_chunks: List[Dict[str, Any]],
-        query_type: str = "general"
+        query_type: str = "general",
+        response_language: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Generate response with strict citation tracking
+        Supports multilingual responses (auto-detect or specified)
         """
         # Build context with source markers
         context_parts = []
@@ -81,8 +83,30 @@ class GeminiService:
         
         context = "\n\n".join(context_parts)
         
+        # Detect language if not specified
+        if not response_language:
+            response_language = self._detect_language(query)
+        
+        # Language-specific instruction
+        language_instruction = ""
+        if response_language and response_language != "en":
+            language_map = {
+                "hi": "Hindi (हिंदी)",
+                "ta": "Tamil (தமிழ்)",
+                "te": "Telugu (తెలుగు)",
+                "bn": "Bengali (বাংলা)",
+                "mr": "Marathi (मराठी)",
+                "gu": "Gujarati (ગુજરાતી)",
+                "kn": "Kannada (ಕನ್ನಡ)",
+                "ml": "Malayalam (മലയാളം)",
+                "pa": "Punjabi (ਪੰਜਾਬੀ)",
+                "ur": "Urdu (اردو)"
+            }
+            lang_name = language_map.get(response_language, response_language)
+            language_instruction = f"\n\nIMPORTANT: Respond in {lang_name}. Translate your entire response to {lang_name} while maintaining citations."
+        
         # Instruction for citation
-        system_instruction = """You are an expert investment analyst. Your task is to provide accurate, 
+        system_instruction = f"""You are an expert investment analyst. Your task is to provide accurate, 
         well-researched answers based ONLY on the provided context. 
 
         CRITICAL RULES:
@@ -90,7 +114,7 @@ class GeminiService:
         2. Only use information from the provided context
         3. If the context doesn't contain enough information, explicitly state what's missing
         4. Be precise with numbers, dates, and names
-        5. Include multiple citations when information comes from multiple sources
+        5. Include multiple citations when information comes from multiple sources{language_instruction}
         
         Format your response with inline citations like this:
         "Company X raised $50M in Series B [1]. The round was led by Sequoia Capital [2][3]."
@@ -116,6 +140,39 @@ Provide a comprehensive answer with inline citations."""
             "citations": citations,
             "source_map": source_map
         }
+    
+    def _detect_language(self, text: str) -> str:
+        """Detect language of the query (simple heuristic-based detection)"""
+        # Hindi Unicode range
+        if any('\u0900' <= char <= '\u097F' for char in text):
+            return "hi"
+        # Tamil
+        elif any('\u0B80' <= char <= '\u0BFF' for char in text):
+            return "ta"
+        # Telugu
+        elif any('\u0C00' <= char <= '\u0C7F' for char in text):
+            return "te"
+        # Bengali
+        elif any('\u0980' <= char <= '\u09FF' for char in text):
+            return "bn"
+        # Marathi (uses Devanagari like Hindi)
+        # Gujarati
+        elif any('\u0A80' <= char <= '\u0AFF' for char in text):
+            return "gu"
+        # Kannada
+        elif any('\u0C80' <= char <= '\u0CFF' for char in text):
+            return "kn"
+        # Malayalam
+        elif any('\u0D00' <= char <= '\u0D7F' for char in text):
+            return "ml"
+        # Punjabi
+        elif any('\u0A00' <= char <= '\u0A7F' for char in text):
+            return "pa"
+        # Urdu (Arabic script)
+        elif any('\u0600' <= char <= '\u06FF' for char in text):
+            return "ur"
+        else:
+            return "en"
     
     def _extract_citations(
         self,
