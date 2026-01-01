@@ -1,0 +1,10 @@
+fastapi==0.110.0
+uvicorn==0.29.0
+python-dotenv==1.0.1
+motor==3.3.2             # Async MongoDB driver
+asyncpg==0.29.0          # Async PostgreSQL driver
+weaviate-client==4.5.0   # Vector Database client
+openai==1.14.0           # For DeepSeek API compatibility
+google-generativeai==0.4.1 # Gemini SDK
+pydantic==2.6.4
+pydantic-settings==2.2.1
