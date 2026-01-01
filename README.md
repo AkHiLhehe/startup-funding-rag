@@ -1,5 +1,5 @@
 # Startup Investment Intelligence Platform
-This project is built for the Anokha Generative AI track challenge.
+This project is built for the Anokha Generative AI track challenge and is an updated version of the submission
 
 ## 🚀 Production-Grade RAG System for Startup & Investor Intelligence
 
@@ -12,9 +12,9 @@ The startup ecosystem generates millions of data points daily—funding announce
 - **For Founders**: Find compatible investors, analyze investment theses, research funding trends
 - **For VCs**: Discover breakout startups, track market signals, perform due diligence
 
-## ✨ Key Features
+##  Key Features
 
-### 🎯 Advanced RAG Pipeline
+###  Advanced RAG Pipeline
 - **Gemini LLM** for reasoning and multilingual generation
 - **Voyage AI Embeddings** for dense vector representations
 - **Weaviate Vector DB** for semantic search
@@ -22,20 +22,20 @@ The startup ecosystem generates millions of data points daily—funding announce
 - **Tavily** for real time search
 - Hybrid search combining vector and keyword matching
 
-### 📚 Strict Citation & Provenance
+###  Strict Citation & Provenance
 - Every claim backed by source citations
 - Confidence scores for each citation
 - Full document provenance tracking
 - Eliminates LLM hallucinations
 
-### 📊 Comprehensive Evaluation Metrics
+###  Comprehensive Evaluation Metrics
 - Retrieval accuracy measurement
 - Citation quality tracking
 - Response relevance scoring
 - Performance monitoring
 - Query analytics
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Backend
 - **FastAPI**: High-performance Python web framework
@@ -58,7 +58,7 @@ The startup ecosystem generates millions of data points daily—funding announce
 - **Docker**: Containerization
 - **Docker Compose**: Multi-container orchestration
 
-## 📦 Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 - Docker & Docker Compose
@@ -141,7 +141,7 @@ cp .env.example .env
 npm run dev
 ```
 
-## 🎯 Usage Guide
+##  Usage Guide
 
 ### 1. Ingest Documents
 
@@ -198,7 +198,7 @@ Navigate to the Analytics page to see:
 - Response quality indicators
 - Citation coverage
 
-## 🏗️ Architecture
+##  Architecture
 
 ### System Components
 
