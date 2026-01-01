@@ -102,9 +102,8 @@ This will start:
 - Frontend (port 3000)
 
 4. **Access the application**
-- Frontend: http://localhost:3000
-- API Docs: http://localhost:8000/docs
-- API Health: http://localhost:8000/api/v1/health
+- Frontend: localhost:3000
+- API Docs: refer to port 8000 in localhost(localhost:8000)
 
 ### Manual Setup (Development)
 
