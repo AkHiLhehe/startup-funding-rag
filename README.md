@@ -1,11 +1,11 @@
 # Startup Investment Intelligence Platform
 This project is built for the Anokha Generative AI track challenge and is an updated version of the submission
 
-## 🚀 Production-Grade RAG System for Startup & Investor Intelligence
+## Production-Grade RAG System for Startup & Investor Intelligence
 
 A comprehensive AI-powered platform that transforms fragmented startup and funding data into actionable intelligence using advanced RAG (Retrieval-Augmented Generation) technology.
 
-## 📋 Overview
+## Overview
 
 The startup ecosystem generates millions of data points daily—funding announcements, investor theses, policy changes, and market signals—yet this information is scattered across news sites, PDFs, and unstructured reports. This platform solves this problem by providing:
 
