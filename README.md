@@ -262,7 +262,7 @@ cd frontend
 npm test
 ```
 
-## 📈 Performance Optimization
+📈 Performance Optimization
 
 - Batch embedding generation (32 documents at a time)
 - Async database operations
