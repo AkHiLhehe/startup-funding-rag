@@ -1,5 +1,7 @@
 # Startup Investment Intelligence Platform
 This project is built for the Anokha Generative AI track challenge and is an updated version of the submission
+As of Now it hit the rate limit so 
+
 
 ## Production-Grade RAG System for Startup & Investor Intelligence
 
