@@ -12,9 +12,9 @@ from core.config import settings
 class GeminiService:
     def __init__(self):
         genai.configure(api_key=settings.GEMINI_API_KEY)
-        # Use gemini-2.5-flash which is available in the API
-        self.model = genai.GenerativeModel('models/gemini-2.5-flash')
-        print("✅ Gemini LLM initialized (models/gemini-2.5-flash)")
+        # Use the model from settings
+        self.model = genai.GenerativeModel(settings.GEMINI_MODEL)
+        print(f"✅ Gemini LLM initialized ({settings.GEMINI_MODEL})")
         self.executor = ThreadPoolExecutor(max_workers=4)
         
     async def generate_response(

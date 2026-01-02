@@ -15,6 +15,7 @@ export interface SearchRequest {
   top_k?: number;
   include_citations?: boolean;
   response_language?: string;
+  use_web_search?: boolean;
 }
 
 export interface Citation {
@@ -55,7 +56,7 @@ export interface Metrics {
 
 export const searchAPI = {
   search: async (request: SearchRequest): Promise<SearchResponse> => {
-    const response = await api.post('/api/v1/search/', request);
+    const response = await api.post('/api/v1/search/', { ...request, use_web_search: true });
     return response.data;
   },
 
