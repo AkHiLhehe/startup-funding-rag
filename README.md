@@ -1,5 +1,7 @@
 # Startup Investment Intelligence Platform
 This project is built for the Anokha Generative AI track challenge and is an updated version of the submission
+As of Now it hit the rate limit so 
+
 
 ## Production-Grade RAG System for Startup & Investor Intelligence
 
@@ -200,55 +202,28 @@ Navigate to the Analytics page to see:
 ##  Architecture
 
 ### System Components
+- **Gemini** for powerful LLM capabilities
+- **Voyage AI** for embedding generation
+- **Weaviate** for vector search
+- **MongoDB** for data persistence
+- **FastAPI** for the backend framework
+- **React** for the frontend
 
-```
-┌─────────────┐
-│   Frontend  │ (React + Tailwind)
-│  (Port 3000)│
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐
-│  Backend    │ (FastAPI)
-│  (Port 8000)│
-└──────┬──────┘
-       │
-       ├──────────────┬─────────────┐
-       ▼              ▼             ▼
-┌───────────┐  ┌──────────┐  ┌──────────┐
-│ Weaviate  │  │ MongoDB  │  │  Gemini  │
-│Vector DB  │  │Document  │  │   LLM    │
-│(Port 8080)│  │   Store  │  │   API    │
-└───────────┘  └──────────┘  └──────────┘
-```
+### System Architecture
 
-### RAG Pipeline Flow
+<img width="632" height="1032" alt="_- visual selection (2)" src="https://github.com/user-attachments/assets/1d3f5b77-b6cd-4a72-a231-8e93fc4527d2" />
 
-1. **Document Ingestion**
-   - Document chunking (1000 chars, 200 overlap)
-   - Generate embeddings (DeepSeek)
-   - Store in Weaviate with metadata
-   - Index in MongoDB
 
-2. **Query Processing**
-   - Generate query embedding
-   - Hybrid search (vector + keyword)
-   - Rank and filter results
-   - Build context with citations
-
-3. **Response Generation**
-   - Gemini LLM with context
-   - Strict citation instructions
-   - Extract and validate citations
-   - Return with confidence scores
+### Workflow
+<img width="720" height="1098" alt="_- visual selection (2)" src="https://github.com/user-attachments/assets/f3922a12-c291-446f-8d69-eb16c39caae2" />
 
 
 
-## 📊 API Documentation
+##  API Documentation
 
 Full API documentation available at: `http://localhost:8000/docs`
 
-## 🎯 Evaluation Metrics
+##  Evaluation Metrics
 
 The system tracks:
 
@@ -259,7 +234,7 @@ The system tracks:
 - **Latency**: Query processing time
 - **Query Distribution**: Query type analytics
 
-## 🚀 Deployment
+##  Deployment
 
 
 ### Docker Production Build
@@ -275,7 +250,7 @@ docker-compose -f docker-compose.yml up -d
 docker-compose up -d --scale backend=3
 ```
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 # Backend tests
@@ -287,7 +262,7 @@ cd frontend
 npm test
 ```
 
-## 📈 Performance Optimization
+📈 Performance Optimization
 
 - Batch embedding generation (32 documents at a time)
 - Async database operations
@@ -304,12 +279,4 @@ This project is built for the Anokha Generative AI track challenge.
 
 For issues, questions, or contributions, please open an issue in the repository.
 
-##  Acknowledgments
-
-- **Gemini** for powerful LLM capabilities
-- **Voyage AI** for embedding generation
-- **Weaviate** for vector search
-- **MongoDB** for data persistence
-- **FastAPI** for the backend framework
-- **React** for the frontend
 
