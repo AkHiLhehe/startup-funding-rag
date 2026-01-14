@@ -40,25 +40,33 @@ The startup ecosystem generates millions of data points daily—funding announce
 ##  Tech Stack
 
 ### Backend
-- **FastAPI**: High-performance Python web framework
-- **Python 3.11+**: Core language
-- **Motor**: Async MongoDB driver
-- **Google Generative AI**: Gemini LLM integration
-- **Weaviate Client**: Vector database operations
+- **FastAPI** - High-performance Python web framework
+- **Python 3.11+** - Core language
+- **Motor** - Async MongoDB driver
+- **Google Generative AI** - Gemini LLM integration
+- **Weaviate Client** - Vector database operations
+- **Celery + Redis** - Async task processing
+- **Voyage AI** - Embedding generation
+- **Tavily** - Web search integration
+- **FlashRank** - Result reranking
+- **PyPDF2 & python-docx** - Document processing
 
 ### Frontend
-- **React 18**: UI library
-- **TypeScript**: Type-safe development
-- **Vite**: Fast build tool
-- **Tailwind CSS**: Utility-first styling
-- **Recharts**: Data visualization
-- **Heroicons**: Beautiful icons
+- **React 18** - UI library
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool
+- **Tailwind CSS** - Utility-first styling
+- **Recharts** - Data visualization
+- **Heroicons** - Beautiful icons
+- **Axios** - HTTP client
+- **React Router** - Navigation
 
 ### Infrastructure
-- **Weaviate**: Vector database
-- **MongoDB**: Document store
-- **Docker**: Containerization
-- **Docker Compose**: Multi-container orchestration
+- **Weaviate** - Vector database
+- **MongoDB** - Document store
+- **Redis** - Message broker
+- **Docker** - Containerization
+- **Docker Compose** - Multi-container orchestration
 
 ##  Installation & Setup
 
